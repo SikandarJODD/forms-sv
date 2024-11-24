@@ -10,7 +10,7 @@
 	$inspect(values);
 </script>
 
-<div class="flex min-h-svh items-center justify-center">
+<div class="flex min-h-[76vh] border items-center justify-center">
 	<form method="post" class="flex min-w-56 flex-col justify-center gap-4" use:enhance>
 		<div class="space-y-1">
 			<Label for="name">Name</Label>

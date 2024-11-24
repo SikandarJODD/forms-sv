@@ -2,6 +2,7 @@
 	import { ModeWatcher } from 'mode-watcher';
 	import '../app.css';
 	import Navbar from '$lib/components/web/navbar/Navbar.svelte';
+	import SidebarPage from '$lib/components/sidebar-page.svelte';
 	let { children } = $props();
 </script>
 
@@ -9,6 +10,7 @@
 <ModeWatcher defaultMode="dark" />
 
 <!-- Navbar -->
-<Navbar />
-
-{@render children()}
+<!-- <Navbar /> -->
+<SidebarPage>
+	{@render children()}
+</SidebarPage>

@@ -1,5 +1,6 @@
 import { fontFamily } from "tailwindcss/defaultTheme";
 import type { Config } from "tailwindcss";
+import plugin from 'tailwindcss/plugin'
 import tailwindcssAnimate from "tailwindcss-animate";
 
 const config: Config = {
@@ -58,7 +59,20 @@ const config: Config = {
 					"accent-foreground": "hsl(var(--sidebar-accent-foreground))",
 					border: "hsl(var(--sidebar-border))",
 					ring: "hsl(var(--sidebar-ring))",
-        		},
+				},
+				magnum: {
+					'50': '#fff9ed',
+					'100': '#fef2d6',
+					'200': '#fce0ac',
+					'300': '#f9c978',
+					'400': '#f7b155',
+					'500': '#f38d1c',
+					'600': '#e47312',
+					'700': '#bd5711',
+					'800': '#964516',
+					'900': '#793a15',
+					'950': '#411c09'
+				}
 			},
 			borderRadius: {
 				xl: "calc(var(--radius) + 4px)",
@@ -84,13 +98,25 @@ const config: Config = {
 				},
 			},
 			animation: {
-        		"accordion-down": "accordion-down 0.2s ease-out",
-        		"accordion-up": "accordion-up 0.2s ease-out",
-       			"caret-blink": "caret-blink 1.25s ease-out infinite",
-      		},
+				"accordion-down": "accordion-down 0.2s ease-out",
+				"accordion-up": "accordion-up 0.2s ease-out",
+				"caret-blink": "caret-blink 1.25s ease-out infinite",
+			},
 		},
 	},
-	plugins: [tailwindcssAnimate],
+	plugins: [tailwindcssAnimate, plugin(function ({ addVariant, matchUtilities, theme }) {
+		addVariant('hocus', ['&:hover', '&:focus'])
+		// Square utility
+		matchUtilities(
+			{
+				square: (value) => ({
+					width: value,
+					height: value
+				})
+			},
+			{ values: theme('spacing') }
+		)
+	})],
 };
 
 export default config;
