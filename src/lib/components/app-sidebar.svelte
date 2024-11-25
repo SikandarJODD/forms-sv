@@ -71,8 +71,7 @@
 					},
 					{
 						title: 'Multiple Forms',
-						url: '#',
-						isCommingSoon: true
+						url: '/docs/multiple-forms',
 					}
 				]
 			}
