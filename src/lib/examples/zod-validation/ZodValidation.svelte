@@ -4,10 +4,12 @@
 	import Input from '$lib/components/ui/input/input.svelte';
 	import Label from '$lib/components/ui/label/label.svelte';
 	import { Checkbox } from '$lib/components/ui/checkbox/index';
+
+	
 	let { form } = $props();
 	let errors = $derived(form?.errors);
 	let values = $derived(form?.data);
-	$inspect(values);
+
 </script>
 
 <div class="flex min-h-[76vh] border items-center justify-center">

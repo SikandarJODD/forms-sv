@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Tree from './Tree.svelte';
 	import { type TableOfContentsItem, type TableOfContentsElements, melt } from '@melt-ui/svelte';
 
 	// export let tree: TableOfContentsItem[] = [];
@@ -32,7 +33,8 @@
 					{@html heading.node.innerHTML}
 				</a>
 				{#if heading.children && heading.children.length}
-					<svelte:self tree={heading.children} level={level + 1} {activeHeadingIdxs} {item} />
+					<!-- <svelte:self tree={heading.children} level={level + 1} {activeHeadingIdxs} {item} /> -->
+					<Tree tree={heading.children} level={level + 1} {activeHeadingIdxs} {item} />
 				{/if}
 			</li>
 		{/each}

@@ -5,6 +5,7 @@
 	import { createTableOfContents } from '@melt-ui/svelte';
 	import { pushState } from '$app/navigation';
 	import Tree from '$lib/components/web/table-of-contents/Tree.svelte';
+	import SvelteZodDesc from '$lib/examples/zod-validation/SvelteZodDesc.svelte';
 
 	const {
 		elements: { item },
@@ -46,9 +47,16 @@
 		class="no-scrollbar space-y-2 overflow-y-auto rounded-lg px-6 py-4 lg:col-span-7"
 	>
 		<h2 class="text-3xl font-semibold">Zod Validation</h2>
-		<p>An example of how to use Zod to validate form data in SvelteKit.</p>
+		<p class="text-muted-foreground">
+			An example of how to use Zod to validate form data in SvelteKit.
+		</p>
+
+		<!-- Main Form -->
 		<ZodValidation {form} />
-		<h2>Preview Code</h2>
+
+
+		<!-- Content -->
+		<SvelteZodDesc />
 	</div>
 
 	<div class="overflow-y-auto rounded-lg border-l border-dashed bg-background p-4 lg:col-span-2">
