@@ -14,7 +14,6 @@ export const load: PageServerLoad = async () => {
 export const actions: Actions = {
     userdetails: async ({ request }) => {
         let formData = await superValidate(request, zod(userSchema))
-        console.log(formData);
         if (!formData.valid) {
             fail(400, { formData });
         }

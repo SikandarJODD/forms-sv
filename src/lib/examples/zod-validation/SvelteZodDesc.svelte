@@ -61,7 +61,7 @@ export let registerSchema = z
         }
     });`;
 	import ZodValidation from './ZodValidation.svelte?raw';
-	import { codeToHtml } from 'shiki';
+
 	let pageSvelteCode = '';
 	let pageServerCode = `import { registerSchema } from '$lib/examples/zod-validation/schema';
 import type { Actions } from '@sveltejs/kit';
@@ -83,6 +83,7 @@ export const actions: Actions = {
     }
 };`;
 
+	import { codeToHtml } from 'shiki';
 	onMount(async () => {
 		schemaCode = await codeToHtml(schemaCode, {
 			lang: 'ts',
@@ -91,18 +92,18 @@ export const actions: Actions = {
 
 		pageSvelteCode = await codeToHtml(ZodValidation, {
 			lang: 'svelte',
-			theme: 'vesper'
+            theme:'vesper'
 		});
 
 		pageServerCode = await codeToHtml(pageServerCode, {
 			lang: 'ts',
-			theme: 'vesper'
+            theme:'vesper'
 		});
 	});
 </script>
 
 <h2 class="text-3xl font-semibold">Schema</h2>
-<div class="border bg-zinc-900/40 p-2">
+<div class="border bg-zinc-900 p-4">
 	{@html schemaCode}
 </div>
 <p class="text-muted-foreground">
@@ -116,10 +117,10 @@ export const actions: Actions = {
 </p>
 
 <h2 class="text-3xl font-semibold">+page.svelte</h2>
-<div class="border bg-zinc-900/40 p-2 overflow-y-auto no-scollbar">
+<div class="no-scollbar overflow-y-auto border bg-[#101010] p-4 ">
 	{@html pageSvelteCode}
 </div>
 <h2 class="text-3xl font-semibold">+page.server.ts</h2>
-<div class="border bg-zinc-900/40 p-2 overflow-auto no-scrollbar">
+<div class="no-scrollbar overflow-auto border bg-[#101010] p-4">
 	{@html pageServerCode}
 </div>

@@ -12,7 +12,7 @@
 	}: {
 		data: PageData;
 	} = $props();
-	let { form, message, errors, constraints, enhance } = superForm(data.form, {
+	let { form, message, errors, enhance } = superForm(data.form, {
 		validators: zod(schema)
 	});
 </script>

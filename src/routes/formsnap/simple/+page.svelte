@@ -18,56 +18,69 @@
 	let form = superForm(data.form, {
 		validators: zodClient(userSchema)
 	});
-	let { form: formData, enhance } = form;
+	let { form: formData, enhance, message } = form;
 </script>
 
 <div class="flex min-h-[70vh] items-center justify-center">
-	<form action="?/userdetails" method="post" use:enhance class="min-w-64">
-		<Field {form} name="name">
-			<Control let:attrs>
-				<Label>Name</Label>
-				<Input {...attrs} type="text" placeholder="Enter your name" bind:value={$formData.name} />
-			</Control>
-			<FieldErrors />
-		</Field>
+	<form action="?/userdetails" method="post" use:enhance class="min-w-64 space-y-2">
+		{#if $message}
+			<span class='text-emerald-400'>
+				{$message}
+			</span>
+		{/if}
+		<div>
+			<Field {form} name="name">
+				<Control>
+					{#snippet children({ props })}
+						<Label>Name</Label>
+						<Input
+							{...props}
+							type="text"
+							placeholder="Enter your name"
+							bind:value={$formData.name}
+						/>
+					{/snippet}
+				</Control>
+				<FieldErrors />
+			</Field>
+		</div>
+		<div>
+			<Field {form} name="username">
+				<Control>
+					{#snippet children({ props })}
+						<Label>Username</Label>
+						<Input
+							{...props}
+							placeholder="Enter your username"
+							type="text"
+							bind:value={$formData.username}
+						/>
+					{/snippet}
+				</Control>
+				<FieldErrors />
+			</Field>
+		</div>
+		<div>
+			<Field {form} name="email">
+				<Control>
+					{#snippet children({ props })}
+						<Label>Email</Label>
+						<Input
+							{...props}
+							placeholder="Enter your email"
+							type="email"
+							bind:value={$formData.email}
+						/>
+					{/snippet}
+				</Control>
 
-		<Field {form} name="username">
-			<Control let:attrs>
-				<Label>Username</Label>
-				<Input
-					{...attrs}
-					placeholder="Enter your username"
-					type="text"
-					bind:value={$formData.username}
-				/>
-			</Control>
-			<FieldErrors />
-		</Field>
-
-		<Field {form} name="email">
-			<Control let:attrs>
-				<Label>Email</Label>
-				<Input
-					{...attrs}
-					placeholder="Enter your email"
-					type="email"
-					bind:value={$formData.email}
-				/>
-			</Control>
-			<FieldErrors />
-		</Field>
-
-		<Field {form} name="desc">
-			<Control let:attrs>
-				<Label>Bio</Label>
-				<Input {...attrs} placeholder="Enter your bio" type="text" bind:value={$formData.desc} />
-			</Control>
-			<FieldErrors />
-		</Field>
-		<div class="mt-2">
+				<FieldErrors />
+			</Field>
+		</div>
+		<div >
 			<Button size="sm" type="submit">Submit</Button>
 		</div>
 	</form>
 </div>
 
-<SuperDebug data={$formData} />
+<!-- <SuperDebug data={$formData} /> -->

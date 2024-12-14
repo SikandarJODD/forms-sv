@@ -2,38 +2,28 @@
 	let { children } = $props();
 	let subnavs = [
 		{
-			name: 'Svelte with Zod',
-			url: '/docs/svelte-zod',
-			desc: 'This Example shows how to use Zod with Svelte.'
-		},
-		{
-			name: 'Superform Client',
-			url: '/docs/superform',
+			name: 'Simple',
+			url: '/formsnap/simple',
 			desc: 'Svelte + ZOD + Sveltekit-Superforms - Client Side'
 		},
 		{
-			name: 'Client-Server',
-			url: '/docs/client-server',
-			desc: 'Client and Server Side Validations'
-		},
-		{
 			name: 'Multiple Forms',
-			url: '/docs/multiple-forms',
-			desc: 'This Example shows how to use Zod with Svelte.'
+			url: '/formsnap/multiple-forms',
+			desc: 'Svelte + ZOD + Sveltekit-Superforms - Client Side'
 		},
 		{
 			name: 'Image and Images Validation',
-			url: '/docs/image-validation',
+			url: '/formsnap/image-validation',
 			desc: 'Image and Images Validation using Zod'
 		},
 		{
 			name: 'Debounce Username',
-			url: '/docs/debounce-username',
+			url: '/formsnap/debounce-username',
 			desc: 'Debounce Username using throttle-debounce'
 		},
 		{
 			name: 'CRUD Superforms',
-			url: '/docs/debounce-username',
+			url: '/formsnap/crud',
 			desc: 'Fully Functional CRUD Superforms + ZOD'
 		}
 	];
@@ -308,7 +298,7 @@
 		<!-- Sidebar component, swap this element with another sidebar if you like -->
 		<div class="flex grow flex-col gap-y-5 overflow-y-auto bg-background px-6 pt-4">
 			<nav class="flex flex-1 flex-col">
-				<h2 class="mb-2 text-xl font-semibold">Superforms Examples</h2>
+				<a href="/formsnap" class="mb-2 text-xl font-semibold text-teal-600">Formsnap Examples</a>
 				<ul role="list" class="flex flex-1 flex-col">
 					<li>
 						<ul role="list" class="-mx-2">
