@@ -33,7 +33,7 @@
 		},
 		{
 			name: 'CRUD Superforms',
-			url: '/docs/debounce-username',
+			url: '/docs/crud',
 			desc: 'Fully Functional CRUD Superforms + ZOD'
 		}
 	];
