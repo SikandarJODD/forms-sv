@@ -9,8 +9,10 @@ export let schema = z.object({
         'File size should be less than 400kb'),
     images: z.instanceof(File, {
         message: 'Please upload a valid image'
-    }).refine((file) => file.size < 600_000,
-        'File size should be less than 400kb').array().min(1,{
+    }).refine((file) => file.size < 700_000,
+        {
+            message: 'File size should be less than 700kb'
+        }).array().min(1, {
             message: 'Please upload at least one image'
         }),
 })
