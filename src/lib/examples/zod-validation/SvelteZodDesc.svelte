@@ -62,7 +62,7 @@ export let registerSchema = z
     });`;
 	import ZodValidation from './ZodValidation.svelte?raw';
 
-	let pageSvelteCode = '';
+	let pageSvelteCode = ZodValidation;
 	let pageServerCode = `import { registerSchema } from '$lib/examples/zod-validation/schema';
 import type { Actions } from '@sveltejs/kit';
 import { z } from 'zod';
@@ -83,29 +83,11 @@ export const actions: Actions = {
     }
 };`;
 
-	import { codeToHtml } from 'shiki';
-	onMount(async () => {
-		schemaCode = await codeToHtml(schemaCode, {
-			lang: 'ts',
-			theme: 'vesper'
-		});
-
-		pageSvelteCode = await codeToHtml(ZodValidation, {
-			lang: 'svelte',
-            theme:'vesper'
-		});
-
-		pageServerCode = await codeToHtml(pageServerCode, {
-			lang: 'ts',
-            theme:'vesper'
-		});
-	});
+	import CopyCode from '$lib/components/web/code/CopyCode.svelte';
 </script>
 
 <h2 class="text-3xl font-semibold">Schema</h2>
-<div class="border bg-zinc-900 p-4">
-	{@html schemaCode}
-</div>
+<CopyCode code={schemaCode} lang='ts' />
 <p class="text-muted-foreground">
 	Checkout Zod <a href="https://zod.dev/?id=refine" target="_blank" class="text-primary underline"
 		>refine</a
@@ -117,10 +99,6 @@ export const actions: Actions = {
 </p>
 
 <h2 class="text-3xl font-semibold">+page.svelte</h2>
-<div class="no-scollbar overflow-y-auto border bg-[#101010] p-4 ">
-	{@html pageSvelteCode}
-</div>
+<CopyCode code={pageSvelteCode} />
 <h2 class="text-3xl font-semibold">+page.server.ts</h2>
-<div class="no-scrollbar overflow-auto border bg-[#101010] p-4">
-	{@html pageServerCode}
-</div>
+<CopyCode code={pageServerCode} lang="ts" />

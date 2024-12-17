@@ -41,25 +41,26 @@
 	let hideHeading = $state(false);
 </script>
 
-<div class="grid h-[90vh] grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-9">
+<div class="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-9">
 	<div
 		id="toc-builder-preview"
-		class="no-scrollbar space-y-2 overflow-y-auto rounded-lg px-6 py-4 lg:col-span-7"
+		class="no-scrollbar space-y-4 overflow-y-auto rounded-lg border-r border-dashed py-4 pl-2 pr-6 lg:col-span-7"
 	>
-		<h2 class="text-3xl font-semibold">Zod Validation</h2>
-		<p class="text-muted-foreground">
-			An example of how to use Zod to validate form data in SvelteKit.
-		</p>
+		<div class='space-y-2'>
+			<h2 class="text-3xl font-semibold">Zod Validation</h2>
+			<p class="text-muted-foreground">
+				An example of how to use Zod to validate form data in SvelteKit.
+			</p>
 
-		<!-- Main Form -->
-		<ZodValidation {form} />
-
+			<!-- Main Form -->
+			<ZodValidation {form} />
+		</div>
 
 		<!-- Content -->
 		<SvelteZodDesc />
 	</div>
 
-	<div class="overflow-y-auto rounded-lg border-l border-dashed bg-background p-4 lg:col-span-2">
+	<div class="sticky top-24 -mt-2.5 h-fit rounded-lg bg-zinc-950 p-4 lg:col-span-2">
 		<p class="font-semibold text-primary">On This Page</p>
 		<nav>
 			{#key $headingsTree}

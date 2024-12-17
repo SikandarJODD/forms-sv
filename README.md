@@ -29,3 +29,8 @@ Docs should include :
 - Multiple Form
 - File Upload
 - Debounce Username
+
+
+### Components to build 
+- Code & Copy Component
+- TOC Comp 
