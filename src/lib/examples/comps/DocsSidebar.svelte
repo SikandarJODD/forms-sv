@@ -6,13 +6,13 @@
 			url: '/docs/svelte-zod',
 			desc: 'This Example shows how to use Zod with Svelte.'
 		},
+		// {
+		// 	name: 'Superform Client',
+		// 	url: '/docs/superform',
+		// 	desc: 'Svelte + ZOD + Sveltekit-Superforms - Client Side'
+		// },
 		{
-			name: 'Superform Client',
-			url: '/docs/superform',
-			desc: 'Svelte + ZOD + Sveltekit-Superforms - Client Side'
-		},
-		{
-			name: 'Client-Server',
+			name: 'Client Server',
 			url: '/docs/client-server',
 			desc: 'Client and Server Side Validations'
 		},

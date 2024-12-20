@@ -5,7 +5,6 @@
 	import { createTableOfContents } from '@melt-ui/svelte';
 	import { pushState } from '$app/navigation';
 	import Tree from '$lib/components/web/table-of-contents/Tree.svelte';
-	import SvelteZodDesc from '$lib/examples/zod-validation/SvelteZodDesc.svelte';
 
 	const {
 		elements: { item },
@@ -30,37 +29,38 @@
 			const element = document.getElementById(id);
 
 			if (container && element) {
-				container.scrollTo({
-					top: element.offsetTop - container.offsetTop - 16,
+				let visitPositon = element.offsetTop - container.offsetTop - 16;
+				window.scrollTo({
+					top: visitPositon,
 					behavior: 'smooth'
 				});
 			}
 		}
 	});
 
-	let hideHeading = $state(false);
+	import DocsPageContent from '$lib/examples/comps/DocsPageContent.svelte';
 </script>
 
 <div class="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-9">
 	<div
 		id="toc-builder-preview"
-		class="no-scrollbar space-y-4 overflow-y-auto rounded-lg border-r border-dashed py-4 pl-2 pr-6 lg:col-span-7"
+		class="space-y-2 rounded-lg border-r border-dashed py-4 pl-2 pr-6 lg:col-span-7"
 	>
-		<div class='space-y-2'>
-			<h2 class="text-3xl font-semibold">Zod Validation</h2>
-			<p class="text-muted-foreground">
-				An example of how to use Zod to validate form data in SvelteKit.
-			</p>
+		<h2 class="text-3xl font-semibold">Zod Validation</h2>
+		<p class="text-muted-foreground">
+			An example of how to use Zod to validate form data in SvelteKit.
+		</p>
 
-			<!-- Main Form -->
-			<ZodValidation {form} />
-		</div>
+		<!-- Main Form -->
+		<ZodValidation {form} />
 
 		<!-- Content -->
-		<SvelteZodDesc />
+		<DocsPageContent />
 	</div>
 
-	<div class="sticky top-24 -mt-2.5 h-fit rounded-lg bg-zinc-950 p-4 lg:col-span-2">
+	<div
+		class="sticky top-20 z-50 -mt-2.5 h-fit overflow-y-auto rounded-lg bg-zinc-950 p-4 lg:col-span-2"
+	>
 		<p class="font-semibold text-primary">On This Page</p>
 		<nav>
 			{#key $headingsTree}

@@ -5,14 +5,12 @@
 	import Label from '$lib/components/ui/label/label.svelte';
 	import { Checkbox } from '$lib/components/ui/checkbox/index';
 
-	
 	let { form } = $props();
 	let errors = $derived(form?.errors);
 	let values = $derived(form?.data);
-
 </script>
 
-<div class="flex min-h-[76vh] border items-center justify-center">
+<div class="flex min-h-[70vh] items-center justify-center border border-muted-foreground/70 dark:bg-zinc-900/60">
 	<form method="post" class="flex min-w-56 flex-col justify-center gap-4" use:enhance>
 		<div class="space-y-1">
 			<Label for="name">Name</Label>
@@ -47,7 +45,7 @@
 		</div>
 		<div class="space-y-1">
 			<Label for="password">Password</Label>
-			<Input type='password' name="password" id="password" placeholder="Password" />
+			<Input type="password" name="password" id="password" placeholder="Password" />
 			{#if errors?.password}
 				<span>
 					<p class="text-sm text-red-500">{errors.password[0]}</p>
@@ -57,7 +55,7 @@
 		<div class="space-y-1">
 			<Label for="confirm_password">Confirm Password</Label>
 			<Input
-				type='password'
+				type="password"
 				name="confirm_password"
 				id="confirm_password"
 				placeholder="Confirm Password"

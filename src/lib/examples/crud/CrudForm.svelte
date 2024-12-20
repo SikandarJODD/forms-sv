@@ -22,8 +22,9 @@
 	});
 </script>
 
-<h1>Superforms CRUD</h1>
-<div class="users">
+<div
+	class="flex min-h-[60vh] flex-col items-center justify-center border border-muted-foreground/70 dark:bg-zinc-900/60"
+>
 	{#if $form.id}
 		<Button size="sm" href="/docs/crud/users" variant="secondary">Create New</Button>
 	{/if}

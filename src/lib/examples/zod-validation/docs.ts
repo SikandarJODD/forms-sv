@@ -1,5 +1,8 @@
-<script>
-	let schemaCode = `import { z } from 'zod';
+// Docs will contain all code and id for Table of Contents 
+// All Docs will merge with one file in superforms, formsnap 
+import ZodValidationCode from '$lib/examples/zod-validation/ZodValidation.svelte?raw';
+import type { DocsType } from '../all-merge/type';
+let schemaCode = `import { z } from 'zod';
 
 export let registerSchema = z
     .object({
@@ -59,10 +62,9 @@ export let registerSchema = z
             });
         }
     });`;
-	import ZodValidation from './ZodValidation.svelte?raw';
 
-	let pageSvelteCode = ZodValidation;
-	let pageServerCode = `import { registerSchema } from '$lib/examples/zod-validation/schema';
+let pageSvelteCode = ZodValidationCode;
+let pageServerCode = `import { registerSchema } from '$lib/examples/zod-validation/schema';
 import type { Actions } from '@sveltejs/kit';
 import { z } from 'zod';
 
@@ -82,22 +84,35 @@ export const actions: Actions = {
     }
 };`;
 
-	import CopyCode from '$lib/components/web/code/CopyCode.svelte';
-</script>
+/*
+Schema for Docs & Snap Page 
+- unique id - same for table of content 
 
-<h2 class="text-3xl font-semibold">Schema</h2>
-<CopyCode code={schemaCode} lang="ts" />
-<p class="text-muted-foreground">
-	Checkout Zod <a href="https://zod.dev/?id=refine" target="_blank" class="text-primary underline"
-		>refine</a
-	>
-	and
-	<a href="https://zod.dev/?id=superrefine" target="_blank" class="text-primary underline"
-		>superRefine</a
-	> docs for more information.
-</p>
+ * all below 3 with optional desc 
+- page svelte code 
+- schema code
+- page server code 
 
-<h2 class="text-3xl font-semibold">+page.svelte</h2>
-<CopyCode code={pageSvelteCode} />
-<h2 class="text-3xl font-semibold">+page.server.ts</h2>
-<CopyCode code={pageServerCode} lang="ts" />
+* Credits table with name, url, github, twitter, desc
+*/
+
+export let svelteZod: DocsType = {
+    id: 'svelte-zod',
+    allcode: [
+        {
+            name: "schema.ts",
+            code: schemaCode,
+        },
+        {
+            name: "+page.svelte",
+            code: pageSvelteCode,
+        },
+        {
+            name: "+page.server.ts",
+            code: pageServerCode,
+        },
+    ],
+    credits: {
+        name: 'Superforms',
+    }
+}

@@ -40,21 +40,23 @@
 	let checkUsername = debounce(500, submitCheckUsername);
 </script>
 
-<div class="flex min-h-screen items-center justify-center">
+<div
+	class="flex min-h-[60vh] items-center justify-center border border-muted-foreground/60 dark:bg-zinc-900/60"
+>
 	<form action="?/post" method="POST" use:enhance class="min-w-64 space-y-2">
 		{#if $message}
 			<p class="text-emerald-500">{$message}</p>
 		{/if}
 		<div class="space-y-1">
 			<Label for="username">Username</Label>
-			<div class='flex gap-2 items-center'>
+			<div class="flex items-center gap-2">
 				<Input
 					form="check"
 					type="text"
 					id="username"
 					placeholder="username"
 					name="username"
-					class='w-52'
+					class="w-52"
 					bind:value={$form.username}
 					oninput={checkUsername}
 				/>
@@ -94,9 +96,16 @@
 		</div>
 		<div class="space-y-1">
 			<Label for="email">Email</Label>
-			<Input type="email" class='w-52' id="email" placeholder="email" name="email" bind:value={$form.email} />
+			<Input
+				type="email"
+				class="w-52"
+				id="email"
+				placeholder="email"
+				name="email"
+				bind:value={$form.email}
+			/>
 		</div>
-		<Button size="sm" type="submit">Submit</Button>
+		<Button size="sm" variant='secondary' type="submit">Submit</Button>
 	</form>
 	<form id="check" action="?/check" method="POST" use:submitEnhance></form>
 </div>

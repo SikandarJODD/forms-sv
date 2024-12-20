@@ -27,7 +27,7 @@
 	});
 </script>
 
-<div class="flex min-h-[80vh] items-center justify-center gap-10">
+<div class="flex min-h-[70vh] border items-center justify-center gap-10 border-muted-foreground/70 dark:bg-zinc-900/60">
 	<!-- Register Form -->
 	<form
 		action="?/register"

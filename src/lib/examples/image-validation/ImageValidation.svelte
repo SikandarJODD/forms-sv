@@ -22,21 +22,21 @@
 	// let file = fileProxy(form, 'image');
 </script>
 
-<div class="flex min-h-svh flex-col items-center justify-center">
+<div class="flex min-h-[70vh] border flex-col items-center justify-center border-muted-foreground/70 dark:bg-zinc-900/60">
 	{#if $message}
 		<p class="text-emerald-400">{$message}</p>
 	{/if}
 	<form method="post" use:enhance class="min-w-80 space-y-2" enctype="multipart/form-data">
 		<div class="space-y-1">
 			<Label for="name">Name</Label>
-			<Input type="text" id="name" name="name" bind:value={$form.name} />
+			<Input type="text" id="name" name="name" bind:value={$form.name} placeholder='Enter your name' />
 			{#if $errors.name}
 				<p class="text-sm text-red-500">{$errors.name}</p>
 			{/if}
 		</div>
 		<div class="space-y-1">
 			<Label for="email">Email</Label>
-			<Input type="email" id="email" name="email" bind:value={$form.email} />
+			<Input type="email" id="email" name="email" bind:value={$form.email} placeholder='Enter your email' />
 			{#if $errors.email}
 				<p class="text-sm text-red-500">{$errors.email}</p>
 			{/if}
@@ -47,7 +47,7 @@
 				type="file"
 				id="image"
 				name="image"
-				accept=".png, .jpg"
+				accept="image/png, image/jpeg"
 				oninput={(e) => ($form.image = e.currentTarget.files?.item(0) as File)}
 			/>
 			{#if $errors.image}
