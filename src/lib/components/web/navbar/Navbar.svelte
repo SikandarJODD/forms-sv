@@ -12,10 +12,10 @@
 			name: 'Superforms',
 			url: '/docs'
 		},
-		{
-			name: 'FormSnap',
-			url: '/formsnap'
-		}
+		// {
+		// 	name: 'FormSnap',
+		// 	url: '/formsnap'
+		// }
 	];
 
 	let isMobileMenu = $state(false);
