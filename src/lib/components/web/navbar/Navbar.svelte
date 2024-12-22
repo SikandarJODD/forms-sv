@@ -12,16 +12,16 @@
 			name: 'Superforms',
 			url: '/docs'
 		},
-		// {
-		// 	name: 'FormSnap',
-		// 	url: '/formsnap'
-		// }
+		{
+			name: 'FormSnap',
+			url: '/formsnap'
+		}
 	];
 
 	let isMobileMenu = $state(false);
 </script>
 
-<nav class="border-b bg-background sticky top-0 z-50">
+<nav class="sticky top-0 z-50 border-b bg-background">
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 		<div class="flex h-16 items-center justify-between">
 			<div class="flex items-center">
@@ -128,7 +128,11 @@
 
 {#snippet socials()}
 	<!-- Github -->
-	<Button size="icon" variant="ghost" href="https://github.com/SikandarJODD/forms-sv" target="_blank"
+	<Button
+		size="icon"
+		variant="ghost"
+		href="https://github.com/SikandarJODD/forms-sv"
+		target="_blank"
 		><svg
 			viewBox="0 0 256 250"
 			width="256"

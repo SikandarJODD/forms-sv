@@ -1,4 +1,5 @@
 import { client_server_docs } from "../client-server/docs";
+import { crud_form } from "../crud/docs";
 import { debounce_username_docs } from "../debounce-username/docs";
 import { image_validation } from "../image-validation/docs";
 import { multiple_forms } from "../multiple-forms/docs";
@@ -13,5 +14,6 @@ export let allExamples: DocsType[] = [
     image_validation,
     debounce_username_docs,
     client_server_docs,
-    superforms_docs
+    superforms_docs,
+    crud_form
 ]

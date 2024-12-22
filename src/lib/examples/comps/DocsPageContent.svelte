@@ -5,7 +5,6 @@
 	import type { DocsType } from '../all-merge/type';
 
 	let paramId = $page.url.pathname.split('/').pop();
-	$inspect(paramId);
 
 	let index = allExamples.findIndex((comp) => comp.id === paramId);
 	let comp: DocsType = $derived(index !== -1 ? allExamples[index] : allExamples[0]);

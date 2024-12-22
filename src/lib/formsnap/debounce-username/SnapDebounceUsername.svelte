@@ -44,7 +44,8 @@
 	let errorClass = 'text-red-500 text-sm';
 </script>
 
-<div class="flex min-h-[40vh] items-center justify-center">
+			
+<div class="flex min-h-[40vh] items-center justify-center border border-muted-foreground/50 dark:bg-zinc-900/50">
 	<form action="?/post" method="POST" use:enhance class="min-w-64 space-y-2">
 		{#if $message}
 			<p class="text-emerald-500">{$message}</p>

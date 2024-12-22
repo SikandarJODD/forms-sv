@@ -28,7 +28,7 @@
 	let { values, valueErrors, errors: fileErrors } = files;
 </script>
 
-<div class="flex min-h-svh flex-col items-center justify-center">
+<div class="flex min-h-[60vh] flex-col items-center justify-center border border-muted-foreground/50 dark:bg-zinc-900/50">
 	{#if $message}
 		<p class="text-emerald-400">{$message}</p>
 	{/if}
@@ -105,28 +105,10 @@
 					{/if}
 				</div>
 			</Field>
-			<!-- {#each $valueErrors as error, i}
-				{#if error}
-					<li>Image {i + 1}: {error}</li>
-				{/if}
-			{/each}
-			{#if $fileErrors}
-				{#each $fileErrors as error, i}
-					{#if error}
-						<li>Image {i + 1}: {error}</li>
-					{/if}
-				{/each}
-			{/if}
-			{#if $errors.images?._errors}
-				<p class="text-sm text-red-500">{$errors.images._errors[0]}</p>
-			{/if}
-			{#if $errors.images && $errors.images[0]}
-				<p class="text-sm text-red-500">{$errors.images[0]}</p>
-			{/if} -->
 		</div>
 		<div>
 			<Button type="submit">Submit</Button>
 		</div>
 	</form>
 </div>
-<SuperDebug data={$formData} />
+<!-- <SuperDebug data={$formData} /> -->

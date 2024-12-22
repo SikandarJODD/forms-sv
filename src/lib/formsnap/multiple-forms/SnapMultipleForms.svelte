@@ -27,7 +27,7 @@
 	import { Field, Control, Label, Description, FieldErrors } from 'formsnap';
 </script>
 
-<div class="flex min-h-[80vh] items-center justify-center gap-10">
+<div class="flex min-h-[60vh] items-center justify-center gap-10 border border-muted-foreground/50 dark:bg-zinc-900/50">
 	<!-- Register Form -->
 	<form
 		action="?/register"

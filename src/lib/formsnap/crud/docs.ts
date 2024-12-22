@@ -1,13 +1,40 @@
-import type { DocsType } from '../all-merge/type';
-import CrudForm from './CrudForm.svelte?raw';
+import type { DocsType } from "$lib/examples/all-merge/type";
+import SnapCrudForm from "./SnapCrudForm.svelte?raw";
 
-let pageSvelteCode = CrudForm;
+
+let schemacode = `import { z } from "zod";
+
+export let userSchema = z.object({
+    id: z.string().regex(/^\d+$/),
+    name: z.string().min(3),
+    email: z.string().email()
+})
+
+type UserDB = z.infer<typeof userSchema>[];
+
+let g = globalThis as unknown as { users: UserDB };
+
+export let userId = () => String(Math.random()).slice(2);
+
+export let users: UserDB = (g.users = g.users || [
+    {
+        id: userId(),
+        name: 'Sikandar Bhide',
+        email: 'sikandar@example.com'
+    },
+    {
+        id: userId(),
+        name: 'Aditya',
+        email: 'aditya@example.com'
+    }
+])`;
+let pageSvelteCode = SnapCrudForm;
 let pageServerCode = `import { superValidate, message } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
 import { error, fail, redirect } from '@sveltejs/kit';
 
 import { users, userId, userSchema } from '$lib/examples/crud/user';
-import type { PageServerLoad, Action, Actions } from './$types';
+import type { PageServerLoad, Actions } from './$types';
 
 // crudSchema makes id optional while validaion 
 let crudSchema = userSchema.extend({
@@ -35,7 +62,7 @@ export const actions: Actions = {
         let form = await superValidate(formData, zod(crudSchema));
 
         if (!form.valid) {
-            return fail(400, { form });
+            return fail(400, { form, message: 'Failed to Submit' });
         }
         if (!form.data.id) {
             // Create New User 
@@ -51,7 +78,7 @@ export const actions: Actions = {
             if (formData.has('delete')) {
                 // Delete User
                 users.splice(index, 1);
-                throw redirect(303, '/docs/crud/users');
+                throw redirect(303, '/formsnap/crud/users');
             }
             else {
                 // Upate User
@@ -61,50 +88,22 @@ export const actions: Actions = {
         }
     }
 };`;
-let schemaCode = `import { z } from "zod";
 
-export let userSchema = z.object({
-    id: z.string().regex(/^\d+$/),
-    name: z.string().min(3),
-    email: z.string().email()
-})
-
-type UserDB = z.infer<typeof userSchema>[];
-
-let g = globalThis as unknown as { users: UserDB };
-
-export let userId = () => String(Math.random()).slice(2);
-
-export let users: UserDB = (g.users = g.users || [
-    {
-        id: userId(),
-        name: 'Sikandar Bhide',
-        email: 'sikandar@example.com'
-    },
-    {
-        id: userId(),
-        name: 'Aditya',
-        email: 'aditya@example.com'
-    }
-])`;
-
-
-
-export let crud_form: DocsType = {
-    id: 'users',
+export let snap_crud: DocsType = {
+    id: "users", // as url : /formsnap/crud/users <- id 
     allcode: [
         {
-            code: schemaCode,
-            name: 'schema.ts',
+            name: "schema.ts",
+            code: schemacode,
             lang: 'ts'
         },
         {
+            name: "+page.svelte",
             code: pageSvelteCode,
-            name: '+page.svelte'
         },
         {
+            name: "+page.server.ts",
             code: pageServerCode,
-            name: '+page.server.ts',
             lang: 'ts'
         },
     ]
