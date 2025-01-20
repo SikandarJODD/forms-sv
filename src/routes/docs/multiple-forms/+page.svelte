@@ -44,7 +44,7 @@
 <div class="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-9">
 	<div
 		id="toc-builder-preview"
-		class="space-y-2 rounded-lg border-r border-dashed py-4 pl-2 pr-6 lg:col-span-7"
+		class="space-y-2 rounded-lg py-4 md:pl-2 md:pr-6 lg:col-span-7 lg:border-r lg:border-dashed"
 	>
 		<h2 class="text-3xl font-semibold">Multiple Forms</h2>
 		<p class="text-muted-foreground">

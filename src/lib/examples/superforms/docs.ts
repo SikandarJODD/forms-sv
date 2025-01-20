@@ -48,7 +48,8 @@ export let superforms_docs: DocsType = {
         },
         {
             code: pageServerCode,
-            name: '+page.server.ts'
+            name: '+page.server.ts',
+            lang: 'ts'
         },
     ]
 }

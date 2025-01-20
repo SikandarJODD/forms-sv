@@ -22,21 +22,35 @@
 	// let file = fileProxy(form, 'image');
 </script>
 
-<div class="flex min-h-[70vh] border flex-col items-center justify-center border-muted-foreground/70 dark:bg-zinc-900/60">
+<div
+	class="flex min-h-[70vh] flex-col items-center justify-center border border-muted-foreground/70 dark:bg-zinc-900/60"
+>
 	{#if $message}
 		<p class="text-emerald-400">{$message}</p>
 	{/if}
-	<form method="post" use:enhance class="min-w-80 space-y-2" enctype="multipart/form-data">
+	<form method="post" use:enhance class="space-y-2 md:min-w-80" enctype="multipart/form-data">
 		<div class="space-y-1">
 			<Label for="name">Name</Label>
-			<Input type="text" id="name" name="name" bind:value={$form.name} placeholder='Enter your name' />
+			<Input
+				type="text"
+				id="name"
+				name="name"
+				bind:value={$form.name}
+				placeholder="Enter your name"
+			/>
 			{#if $errors.name}
 				<p class="text-sm text-red-500">{$errors.name}</p>
 			{/if}
 		</div>
 		<div class="space-y-1">
 			<Label for="email">Email</Label>
-			<Input type="email" id="email" name="email" bind:value={$form.email} placeholder='Enter your email' />
+			<Input
+				type="email"
+				id="email"
+				name="email"
+				bind:value={$form.email}
+				placeholder="Enter your email"
+			/>
 			{#if $errors.email}
 				<p class="text-sm text-red-500">{$errors.email}</p>
 			{/if}
@@ -88,7 +102,7 @@
 			{/if}
 		</div>
 		<div>
-			<Button type="submit">Submit</Button>
+			<Button size='sm' variant='secondary' type="submit">Submit</Button>
 		</div>
 	</form>
 </div>

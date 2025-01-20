@@ -17,11 +17,13 @@
 	});
 </script>
 
-<div class="flex min-h-[60vh] flex-col items-center justify-center border border-muted-foreground/70 dark:bg-zinc-900/60">
+<div
+	class="flex min-h-[60vh] flex-col items-center justify-center border border-muted-foreground/70 dark:bg-zinc-900/60"
+>
 	{#if $message}
 		<p class="text-emerald-400">{$message}</p>
 	{/if}
-	<form method="post" use:enhance class="min-w-80 space-y-2">
+	<form method="post" use:enhance class="w-full md:w-80 space-y-2 p-4 lg:p-0">
 		<div class="space-y-1">
 			<Label for="name">Name</Label>
 			<Input
@@ -57,7 +59,7 @@
 		</div>
 
 		<div>
-			<Button type="submit" size="sm" variant='secondary' >Submit</Button>
+			<Button type="submit" size="sm" variant="secondary">Submit</Button>
 		</div>
 	</form>
 </div>

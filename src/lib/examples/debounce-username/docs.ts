@@ -72,11 +72,13 @@ export let debounce_username_docs: DocsType = {
     allcode: [
         {
             code: schemaCode,
-            name: 'schema.ts'
+            name: 'schema.ts',
+            lang: 'ts'
         },
         {
             code: usernameCode,
-            name: 'username.ts'
+            name: 'username.ts',
+            lang: 'ts'
         },
         {
             code: pageSvelteCode,
@@ -84,7 +86,8 @@ export let debounce_username_docs: DocsType = {
         },
         {
             code: pageServerCode,
-            name: '+page.server.ts'
+            name: '+page.server.ts',
+            lang: 'ts'
         },
     ]
 }

@@ -1,33 +1,26 @@
 <script lang="ts">
-	import DocsPageContent from '$lib/examples/comps/DocsPageContent.svelte';
-	import DebounceUsername from '$lib/examples/debounce-username/DebounceUsername.svelte';
-	import type { PageData } from './$types';
-
-	let { data }: { data: PageData } = $props();
-
 	import { createTableOfContents } from '@melt-ui/svelte';
 	import { pushState } from '$app/navigation';
 	import Tree from '$lib/components/web/table-of-contents/Tree.svelte';
+	import DocsPageContent from '$lib/examples/comps/DocsPageContent.svelte';
+	import type { PageData } from './$types';
+	import MultiStepClient from '$lib/examples/multi-step-client/MultiStepClient.svelte';
+
+	let {
+		data
+	}: {
+		data: PageData;
+	} = $props();
 
 	const {
 		elements: { item },
 		states: { activeHeadingIdxs, headingsTree }
 	} = createTableOfContents({
 		selector: '#toc-builder-preview',
-		// exclude: ['h1', 'h4', 'h5', 'h6'],
 		activeType: 'all',
-		/**
-		 * Here we can optionally provide SvelteKit's `pushState` function.
-		 * This function preserve navigation state within the framework.
-		 */
 		pushStateFn: pushState,
 		headingFilterFn: (heading) => !heading.hasAttribute('data-toc-ignore'),
 		scrollFn: (id) => {
-			/**
-			 * Here we're overwriting the default scroll function
-			 * so that we only scroll within the ToC preview
-			 * container, instead of the entire page.
-			 */
 			const container = document.getElementById('toc-builder-preview');
 			const element = document.getElementById(id);
 
@@ -47,13 +40,14 @@
 		id="toc-builder-preview"
 		class="space-y-2 rounded-lg lg:border-r lg:border-dashed py-4 md:pl-2 md:pr-6 lg:col-span-7"
 	>
-		<h2 class="text-3xl font-semibold">Debounce Username</h2>
+		<h2 class="text-3xl font-semibold">Multi Step Client</h2>
 		<p class="text-muted-foreground">
-			Simple Example of Debouncing an Input Field to Check Username Availability
+			An example of how to use Multi Step Form in SvelteKit. All validations are carried out on the
+			client side. Site won't reload on form submission.
 		</p>
 
 		<!-- Main Form -->
-		<DebounceUsername {data} />
+		<MultiStepClient {data} />
 
 		<!-- Content -->
 		<DocsPageContent />

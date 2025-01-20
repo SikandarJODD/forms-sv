@@ -10,8 +10,14 @@
 	let values = $derived(form?.data);
 </script>
 
-<div class="flex min-h-[70vh] items-center justify-center border border-muted-foreground/70 dark:bg-zinc-900/60">
-	<form method="post" class="flex min-w-56 flex-col justify-center gap-4" use:enhance>
+<div
+	class="flex items-center justify-center border border-muted-foreground/70 dark:bg-zinc-900/60 lg:min-h-[70vh]"
+>
+	<form
+		method="post"
+		class="flex w-full flex-col justify-center gap-4 p-4 md:w-80 lg:p-0"
+		use:enhance
+	>
 		<div class="space-y-1">
 			<Label for="name">Name</Label>
 			<Input
@@ -88,7 +94,7 @@
 			{/if}
 		</div>
 		<div>
-			<Button type="submit">Submit</Button>
+			<Button size='sm' variant='secondary' type="submit">Submit</Button>
 		</div>
 	</form>
 </div>

@@ -45,9 +45,11 @@
 <div class="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-9">
 	<div
 		id="toc-builder-preview"
-		class="space-y-2 rounded-lg border-r border-dashed py-4 pl-2 pr-6 lg:col-span-7"
+		class="space-y-2 rounded-lg lg:border-r lg:border-dashed py-4 pl-2 pr-6 lg:col-span-7"
 	>
-		<h2 class="text-3xl font-semibold">Zod Validation</h2>
+		<h2 class="text-3xl font-semibold">
+			Client & Server Form Validation
+		</h2>
 		<p class="text-muted-foreground">
 			An example of how to use Zod to validate form data in SvelteKit.
 		</p>

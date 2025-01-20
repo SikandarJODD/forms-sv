@@ -65,7 +65,8 @@ export let multiple_forms: DocsType = {
     allcode: [
         {
             code: schemaCode,
-            name: 'schema.ts'
+            name: 'schema.ts',
+            lang: 'ts'
         },
         {
             code: pageSvelteCode,
@@ -73,7 +74,8 @@ export let multiple_forms: DocsType = {
         },
         {
             code: pageServerCode,
-            name: '+page.server.ts'
+            name: '+page.server.ts',
+            lang: 'ts'
         },
     ]
 }

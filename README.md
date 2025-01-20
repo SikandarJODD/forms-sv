@@ -1,36 +1,18 @@
-Things to Add
+# Form Validation Examples
 
-- Sidebar with all examples
+- Collection of forms examples using Superform, ZOD and SvelteKit.
+- Additional examples using Formsnap and Superforms.
 
-## Forms
+## Forms Examples
 
-- multiple forms : done
-- loading timers
-- snapshots
-- nested data
-- formsnap example + shadcn examples
-
-add easy way to copy paste +page.svelte +page.server and schema.ts files
-
-## Add Docs
-
-Docs should include :
-
-- schema
-- `+page.server.ts` and `+page.svelte` code
-- how to run the example.
-- step by step guide to create the example.
-
-## Forms
-
-- Simple Form
-- Form + ZOD
-- Superform Validation
-- Multiple Form
-- File Upload
-- Debounce Username
-
-
-### Components to build 
-- Code & Copy Component
-- TOC Comp 
+| Form                 | Status |
+| -------------------- | ------ |
+| Simple Form          | done   |
+| Form + ZOD           | done   |
+| Superform Validation | done   |
+| Multiple Form        | done   |
+| File Upload          | done   |
+| Debounce Username    | done   |
+| Multi-Step Forms     | done   |
+| Nested Data          | done   |
+| Loading Timers       | done   |

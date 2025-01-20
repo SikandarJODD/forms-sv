@@ -12,5 +12,5 @@
 
 {#each comp.allcode as item}
 	<h2 class="text-3xl font-semibold">{item.name}</h2>
-	<CopyCode code={item.code} lang="ts" />
+	<CopyCode code={item.code} lang={item?.lang ?? 'svelte'} />
 {/each}

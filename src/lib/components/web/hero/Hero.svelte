@@ -17,12 +17,9 @@
 				>
 					Supeforms & Formsnap Examples
 				</h1>
-				<p class="mt-4 text-pretty text-lg font-normal text-muted-foreground/70 sm:text-xl/8">
-					i have build 20+ form examples using <a
-						href="/"
-						class="font-mono font-medium text-primary dark:text-sky-400">sveltekit-superforms</a
-					>
-					and <a href="/" class="font-mono font-medium dark:text-sky-400 text-primary">formsnap</a>.<br />
+				<p class="mt-4 text-pretty text-lg font-normal text-muted-foreground sm:text-xl/8">
+					Built form examples in SvelteKit using sveltekit-superforms and FormSnap - featuring
+					multi-step forms, files validation, debounce search, multiple forms, CRUD operations, and more.
 				</p>
 				<div class="mt-10 flex items-center justify-center gap-x-4">
 					<Button size="lg" href="/docs">Get Started</Button>

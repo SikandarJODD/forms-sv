@@ -27,13 +27,15 @@
 	});
 </script>
 
-<div class="flex min-h-[70vh] border items-center justify-center gap-10 border-muted-foreground/70 dark:bg-zinc-900/60">
+<div
+	class="flex items-center justify-center flex-wrap gap-10 border border-muted-foreground/70 p-4 dark:bg-zinc-900/60 md:min-h-[70vh] md:p-0"
+>
 	<!-- Register Form -->
 	<form
 		action="?/register"
 		method="POST"
 		use:enhance
-		class="min-h-80 min-w-80 space-y-2 border border-dashed border-muted-foreground/50 bg-zinc-900/40 p-6 *:space-y-1"
+		class="min-h-80 w-full space-y-2 border border-dashed border-muted-foreground/50 bg-zinc-900/40 p-6 *:space-y-1 md:w-80"
 	>
 		{#if $message}
 			<p class="text-xs text-green-500">{$message}</p>
@@ -70,7 +72,7 @@
 			{/if}
 		</div>
 		<div>
-			<Button size="sm" type="submit">Register</Button>
+			<Button size="sm" variant="secondary" type="submit">Register</Button>
 		</div>
 	</form>
 
@@ -79,7 +81,7 @@
 		action="?/login"
 		method="POST"
 		use:loginEnhance
-		class="min-h-80 min-w-80 space-y-2 border border-dashed border-muted-foreground/50 bg-zinc-900/40 p-6 *:space-y-1"
+		class="min-h-80 w-full space-y-2 border border-dashed border-muted-foreground/50 bg-zinc-900/40 p-6 *:space-y-1 md:w-80"
 	>
 		{#if $loginMessage}
 			<p class="text-xs text-green-500">{$loginMessage}</p>
@@ -109,7 +111,7 @@
 			{/if}
 		</div>
 		<div>
-			<Button size="sm" type="submit">Login</Button>
+			<Button size="sm" variant="secondary" type="submit">Login</Button>
 		</div>
 	</form>
 </div>

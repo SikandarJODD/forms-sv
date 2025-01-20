@@ -10,7 +10,7 @@
 		},
 		{
 			name: 'Superforms',
-			url: '/docs'
+			url: '/docs/client-server'
 		},
 		{
 			name: 'FormSnap',
@@ -66,7 +66,7 @@
 					<span class="sr-only">Open main menu</span>
 					<!--
 			  Icon when menu is closed.
-  
+
 			  Menu open: "hidden", Menu closed: "block"
 			-->
 					<svg
@@ -86,7 +86,7 @@
 					</svg>
 					<!--
 			  Icon when menu is open.
-  
+
 			  Menu open: "block", Menu closed: "hidden"
 			-->
 					<svg

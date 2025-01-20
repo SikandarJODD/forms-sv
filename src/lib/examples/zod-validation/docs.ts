@@ -102,6 +102,7 @@ export let svelteZod: DocsType = {
         {
             name: "schema.ts",
             code: schemaCode,
+            lang: 'ts'
         },
         {
             name: "+page.svelte",
@@ -110,6 +111,7 @@ export let svelteZod: DocsType = {
         {
             name: "+page.server.ts",
             code: pageServerCode,
+            lang: 'ts'
         },
     ],
     credits: {
